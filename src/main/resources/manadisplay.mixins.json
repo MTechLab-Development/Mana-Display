@@ -4,6 +4,7 @@
   "package": "dev.mtechlab.manadisplay.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EMIManaWidgetMixin",
     "FlowersWandHudMixin",
     "HUDHandlerMixin",
     "ItemManaDisplay",
