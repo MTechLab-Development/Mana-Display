@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "manadisplay.refmap.json",
   "mixins": [
+    "EMIManaWidgetMixin",
     "FlowersWandHudMixin",
     "HUDHandlerMixin",
     "ItemManaDisplay",
