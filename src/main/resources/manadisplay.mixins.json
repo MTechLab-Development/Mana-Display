@@ -8,6 +8,7 @@
     "FlowersWandHudMixin",
     "HUDHandlerMixin",
     "ItemManaDisplay",
+    "ManaPoolRecipeCategoryMixin",
     "ManaSpreaderBlockEntityAccessor",
     "PoolWandHudMixin",
     "SpreaderWandHudMixin"
