@@ -69,7 +69,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 
 dependencies {
-    implementation(files("libs/botania-neoforge.jar"))
+    implementation(files("libs/botania-neoforge-1.21.1-451-SNAPSHOT.jar"))
     implementation(files("libs/patchouli-neoforge.jar"))
     implementation "curse.maven:emi-580555:6420931"
     implementation "curse.maven:curios-309927:6529130"

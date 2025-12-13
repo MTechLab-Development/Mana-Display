@@ -1,6 +1,8 @@
 package dev.mtechlab.manadisplay.mixins;
 
+import com.mojang.blaze3d.platform.Window;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.language.I18n;
 import org.spongepowered.asm.mixin.Final;
@@ -17,16 +19,16 @@ import vazkii.botania.client.core.helper.RenderHelper;
 public abstract class FlowersWandHudMixin {
 
     @Shadow(remap = false) @Final
-    protected BindableSpecialFlowerBlockEntity flower;
+    protected BindableSpecialFlowerBlockEntity<?> flower;
 
-    @Inject(method = "renderHUD(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/Minecraft;III)V", at = @At("HEAD"), cancellable = true, remap = false)
-    public void mana_display$renderManaBar(GuiGraphics gui, Minecraft mc, int minLeft, int minRight, int minDown, CallbackInfo ci) {
+    @Inject(method = "renderHUD(Lnet/minecraft/client/gui/GuiGraphics;Lcom/mojang/blaze3d/platform/Window;Lnet/minecraft/client/gui/Font;III)V", at = @At("HEAD"), cancellable = true, remap = false)
+    public void mana_display$renderManaBar(GuiGraphics gui, Window window, Font font, int minLeft, int minRight, int minDown, CallbackInfo ci) {
         String name = I18n.get(flower.getBlockState().getBlock().getDescriptionId());
         int color = flower.getColor();
-        int centerX = mc.getWindow().getGuiScaledWidth() / 2;
-        int centerY = mc.getWindow().getGuiScaledHeight() / 2;
+        int centerX = window.getGuiScaledWidth() / 2;
+        int centerY = window.getGuiScaledHeight() / 2;
 
-        int textWidth = mc.font.width(name);
+        int textWidth = font.width(name);
         int boxWidth = Math.max(102, textWidth) + 4;
         int left = boxWidth / 2;
 
@@ -37,8 +39,7 @@ public abstract class FlowersWandHudMixin {
                 centerY + 30
         );
 
-        BotaniaAPIClient.instance().drawComplexManaHUD(gui, color, flower.getMana(), flower.getMaxMana(), name, flower.getHudIcon(), flower.isValidBinding()
-        );
+        BotaniaAPIClient.instance().drawComplexManaHUD(gui, window, font, color, this.flower.getMana(), this.flower.getMaxMana(), name, this.flower.getHudIcon(), this.flower.isValidBinding());
 
         ci.cancel();
     }
