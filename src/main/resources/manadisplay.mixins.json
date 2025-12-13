@@ -2,15 +2,11 @@
   "required": true,
   "minVersion": "0.8",
   "package": "dev.mtechlab.manadisplay.mixins",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EMIManaWidgetMixin",
-    "FlowersWandHudMixin",
     "HUDHandlerMixin",
-    "ItemManaDisplay",
-    "ManaSpreaderBlockEntityAccessor",
-    "PoolWandHudMixin",
-    "SpreaderWandHudMixin"
+    "ManaPoolRecipeCategoryMixin",
+    "TooltipHandlerMixin"
   ],
   "client": [
   ],
