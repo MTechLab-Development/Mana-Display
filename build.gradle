@@ -20,7 +20,7 @@ group = mod_group_id
 version = minecraft_version + "-" + mod_version
 
 base {
-    archivesName = mod_id
+    archivesName = "ManaDisplay"
 }
 
 java {
