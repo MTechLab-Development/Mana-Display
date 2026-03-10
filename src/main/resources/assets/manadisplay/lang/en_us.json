@@ -1,3 +1,7 @@
 {
-  "manadisplay.mana": "Mana: %s / %s"
+  "manadisplay.mana": "Mana: %s / %s",
+  "manadisplay.rate.positive": "%s %s ↑",
+  "manadisplay.rate.negative": "%s %s ↓",
+  "manadisplay.rate.zero": "0 %s",
+  "manadisplay.unit.mana_per_sec": "Mana/s"
 }
