@@ -168,7 +168,7 @@ public class ManaOverlayRenderer {
 
         float progress = max > 0 ? mana / (float) max : 0f;
 
-        float partialTick = mc.getFrameTimeNs() * 1e-9f * 20f;
+        float partialTick = mc.getPartialTick();
         float time = (mc.level.getGameTime() + partialTick) / 20f * ANIMATION_SPEED;
 
         drawNotchedRect(
@@ -328,7 +328,7 @@ public class ManaOverlayRenderer {
             float r, float g, float b, float a
     ) {
         Matrix4f m = pose.last().pose();
-        VertexConsumer vc = buffers.getBuffer(RenderType.debugQuads());
+        VertexConsumer vc = buffers.getBuffer(RenderType.guiOverlay());
 
         vc.vertex(m, x1, y1, z).color(r, g, b, a).endVertex();
         vc.vertex(m, x1, y2, z).color(r, g, b, a).endVertex();
@@ -361,7 +361,7 @@ public class ManaOverlayRenderer {
             float time
     ) {
         Matrix4f m = pose.last().pose();
-        VertexConsumer vc = buffers.getBuffer(RenderType.debugQuads());
+        VertexConsumer vc = buffers.getBuffer(RenderType.guiOverlay());
 
         float width = x2 - x1;
         int segments = 24;
